@@ -38,11 +38,20 @@ Perhaps a little code snippet.
 
 use Readonly;
 use Types::Standard -types;
-use WebService::Runkeeper::Types qw( +RestClient );
+use WebService::Runkeeper::Types qw(
+  +RestClient
+  +AcceptHeader
+  +AcceptHeaderKey
+  +AcceptHeaderValue
+);
 
 # constants
 
 Readonly my $BASE_URI => 'https://api.runkeeper.com';
+
+Readonly my $ACCEPT_HEADERS => {
+  root => 'application/vnd.com.runkeeper.Root+json',
+};
 
 has 'client' => (
   is         => 'rwp',
@@ -50,25 +59,27 @@ has 'client' => (
   coerce     => sub { to_RestClient($_[0]) },
   builder    => sub {
     to_RestClient(
-      [
-        $BASE_URI,
-        {
-          debug => 1,
-        },
-      ]
+      {
+        host => $BASE_URI,
+      }
     )
   },
 );
 
-
-
 =head1 SUBROUTINES/METHODS
 
-=head2 function1
+=head2 root
+
+Retrieves the root resource (L<https://runkeeper.com/developer/healthgraph/root-resource>).
 
 =cut
 
-sub function1 {
+sub root {
+  my( $self ) = @_;
+
+  my $accept = _accept_header('root');
+
+  $self->client->addHeader(@{$accept});
 }
 
 =head2 function2
@@ -76,6 +87,18 @@ sub function1 {
 =cut
 
 sub function2 {
+}
+
+# private
+
+sub _accept_header {
+  my( $caller ) = @_;
+
+  my $accept = to_AcceptHeader(['Accept:', $ACCEPT_HEADERS->{$caller}]);
+
+  assert_AcceptHeader($accept);
+
+  return($accept);
 }
 
 =head1 AUTHOR
