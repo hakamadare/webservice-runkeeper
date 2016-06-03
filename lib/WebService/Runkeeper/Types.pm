@@ -2,12 +2,14 @@ package WebService::Runkeeper::Types;
 
 use Type::Library
   -base,
-  -declare => qw( JsonApi );
+  -declare => qw( RestClient );
 use Type::Utils -all;
 use Types::Standard -types;
 
-class_type JsonApi, { class => "JSON::API" };
+use REST::Client;
 
-coerce JsonApi,
-  from Str,       via { "JSON::API"->new($_) },
-  from ArrayRef,  via { "JSON::API"->new(@{$_}) };
+class_type RestClient, { class => "REST::Client" };
+
+coerce RestClient,
+  from Str,       via { "REST::Client"->new($_) },
+  from ArrayRef,  via { "REST::Client"->new(@{$_}) };

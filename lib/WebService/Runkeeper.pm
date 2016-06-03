@@ -36,14 +36,31 @@ Perhaps a little code snippet.
 
 # here comes the actual code!
 
+use Readonly;
 use Types::Standard -types;
-use WebService::Runkeeper::Types qw( +JsonApi );
+use WebService::Runkeeper::Types qw( +RestClient );
+
+# constants
+
+Readonly my $BASE_URI => 'https://api.runkeeper.com';
 
 has 'client' => (
-  is         => 'ro',
-  isa        => sub { croak("must be a JSON::API") unless is_JsonApi($_[0]) },
-  coerce     => sub { to_JsonApi($_[0]) },
+  is         => 'rwp',
+  isa        => sub { croak("must be a REST::Client") unless is_RestClient($_[0]) },
+  coerce     => sub { to_RestClient($_[0]) },
+  builder    => sub {
+    to_RestClient(
+      [
+        $BASE_URI,
+        {
+          debug => 1,
+        },
+      ]
+    )
+  },
 );
+
+
 
 =head1 SUBROUTINES/METHODS
 

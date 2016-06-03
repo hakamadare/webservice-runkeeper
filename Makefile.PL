@@ -29,11 +29,12 @@ build_requires (
 );
 
 requires (
-   'JSON::API'  => '1',
-   'Moo'        => '2',
-   'Type::Tiny' => '1',
+   'Moo'              => '2',
+   'Readonly'         => '2',
+   'REST::Client'     => '1',
+   'Type::Tiny'       => '1',
    'namespace::clean' => '0.27',
-   'strictures' => '2',
+   'strictures'       => '2',
 );
 
 install_as_cpan;
