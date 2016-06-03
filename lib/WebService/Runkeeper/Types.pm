@@ -42,3 +42,6 @@ declare AcceptHeaderValue,
 
 declare AcceptHeader,
   as Tuple[AcceptHeaderKey, AcceptHeaderValue];
+
+coerce AcceptHeader,
+  from ArrayRef, via { @{$_} };

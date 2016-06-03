@@ -25,6 +25,7 @@ configure_requires (
 );
 
 build_requires (
+   'Reply'      => 0,
    'Test::More' => 0,
 );
 
