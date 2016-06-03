@@ -3,6 +3,7 @@ package WebService::Runkeeper;
 use 5.008003;
 use Moo;
 use strictures 2;
+no strict qw( subs );
 use namespace::clean;
 use Carp;
 
@@ -11,6 +12,7 @@ use Carp;
 WebService::Runkeeper - Client for Runkeeper's Health Graph API
 
 =head1 VERSION
+
 
 Version 0.01
 
@@ -34,11 +36,12 @@ Perhaps a little code snippet.
 
 # here comes the actual code!
 
+use Types::Standard -types;
 use WebService::Runkeeper::Types qw( +JsonApi );
 
 has 'client' => (
   is         => 'ro',
-  isa        => sub { die "$_[0] is not a JSON::API" unless is_JsonApi($_[0]) },
+  isa        => sub { croak("must be a JSON::API") unless is_JsonApi($_[0]) },
   coerce     => sub { to_JsonApi($_[0]) },
 );
 
