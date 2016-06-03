@@ -31,6 +31,7 @@ build_requires (
 
 requires (
    'Moo'              => '2',
+   'OAuth::Lite2'     => '0.10',
    'Readonly'         => '2',
    'REST::Client'     => '1',
    'Type::Tiny'       => '1',
