@@ -1,5 +1,6 @@
 package WebService::Runkeeper::Types;
 
+use strict ;
 use Type::Library
   -base,
   -declare => qw(

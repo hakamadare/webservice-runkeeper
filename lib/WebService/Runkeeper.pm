@@ -1,9 +1,11 @@
 package WebService::Runkeeper;
 
+use strict;
+
 use 5.008003;
 use Moo;
 use strictures 2;
-no strict qw( subs );
+#no strict qw( subs );
 use namespace::clean;
 use Carp;
 
