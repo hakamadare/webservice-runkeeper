@@ -12,6 +12,16 @@ use Type::Library
 use Type::Utils -all;
 use Types::Standard -types;
 
+=head1 NAME
+
+WebService::Runkeeper::Types - type library for WebService::Runkeeper
+
+=head1 SYNOPSIS
+
+Use L<Type::Tiny>-based types to represent structured data; use coercions and type checking to make it easier to validate inputs.
+
+=cut
+
 use REST::Client;
 
 class_type RestClient, { class => "REST::Client" };

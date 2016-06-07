@@ -1,57 +1,77 @@
-WebService-Runkeeper
+# NAME
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+WebService::Runkeeper - Client for Runkeeper's Health Graph API
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+# VERSION
 
+Version 0.01
 
-INSTALLATION
+# SYNOPSIS
 
-To install this module, run the following commands:
+Quick summary of what the module does.
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+Perhaps a little code snippet.
 
-SUPPORT AND DOCUMENTATION
+    use WebService::Runkeeper;
 
-After installing, you can find documentation for this module with the
-perldoc command.
+    my $foo = WebService::Runkeeper->new();
+    ...
+
+# SUBROUTINES/METHODS
+
+## root
+
+Retrieves the root resource ([https://runkeeper.com/developer/healthgraph/root-resource](https://runkeeper.com/developer/healthgraph/root-resource)).
+
+## function2
+
+# AUTHOR
+
+Steve Huff, `<shuff at cpan.org>`
+
+# BUGS
+
+Please report any bugs or feature requests to `bug-webservice-runkeeper at
+rt.cpan.org`, or through the web interface at
+[http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-Runkeeper](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=WebService-Runkeeper).  I will
+be notified, and then you'll automatically be notified of progress on your bug
+as I make changes.
+
+# SUPPORT
+
+You can find documentation for this module with the perldoc command.
 
     perldoc WebService::Runkeeper
 
 You can also look for information at:
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-Runkeeper
+- RT: CPAN's request tracker (report bugs here)
 
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/WebService-Runkeeper
+    [http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-Runkeeper](http://rt.cpan.org/NoAuth/Bugs.html?Dist=WebService-Runkeeper)
 
-    CPAN Ratings
-        http://cpanratings.perl.org/d/WebService-Runkeeper
+- AnnoCPAN: Annotated CPAN documentation
 
-    Search CPAN
-        http://search.cpan.org/dist/WebService-Runkeeper/
+    [http://annocpan.org/dist/WebService-Runkeeper](http://annocpan.org/dist/WebService-Runkeeper)
 
+- CPAN Ratings
 
-LICENSE AND COPYRIGHT
+    [http://cpanratings.perl.org/d/WebService-Runkeeper](http://cpanratings.perl.org/d/WebService-Runkeeper)
 
-Copyright (C) 2016 Steve Huff
+- Search CPAN
+
+    [http://search.cpan.org/dist/WebService-Runkeeper/](http://search.cpan.org/dist/WebService-Runkeeper/)
+
+# ACKNOWLEDGEMENTS
+
+# LICENSE AND COPYRIGHT
+
+Copyright 2016 Steve Huff.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the the Artistic License (2.0). You may obtain a
 copy of the full license at:
 
-L<http://www.perlfoundation.org/artistic_license_2_0>
+[http://www.perlfoundation.org/artistic\_license\_2\_0](http://www.perlfoundation.org/artistic_license_2_0)
 
 Any use, modification, and distribution of the Standard or Modified
 Versions is governed by this Artistic License. By using, modifying or
@@ -82,4 +102,3 @@ YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
 CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
 CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-

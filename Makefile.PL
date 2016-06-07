@@ -2,6 +2,7 @@ use 5.008003;
 use strict;
 use warnings;
 use inc::Module::Install;
+use Module::Install::ReadmeMarkdownFromPod;
 
 name     'WebService-Runkeeper';
 all_from 'lib/WebService/Runkeeper.pm';
@@ -11,6 +12,8 @@ license  'artistic2';
 perl_version 5.008003;
 
 tests_recursive('t');
+
+readme_markdown_from 'lib/WebService/Runkeeper.pm';
 
 resources (
    homepage   => 'http://developer.runkeeper.com',
@@ -25,8 +28,13 @@ configure_requires (
 );
 
 build_requires (
-   'Reply'      => 0,
-   'Test::More' => 0,
+   'Reply'                                  => 0,
+   'Test::More'                             => 0,
+   'Module::Install::ReadmeMarkdownFromPod' => 0,
+);
+
+test_requires (
+   'Test::CheckManifest' => '0.9',
 );
 
 requires (
